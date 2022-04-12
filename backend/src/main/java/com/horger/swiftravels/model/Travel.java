@@ -16,7 +16,6 @@ import static javax.persistence.GenerationType.AUTO;
 @Setter
 @ToString
 @RequiredArgsConstructor
-@NoArgsConstructor
 @AllArgsConstructor
 public class Travel {
     @Id
