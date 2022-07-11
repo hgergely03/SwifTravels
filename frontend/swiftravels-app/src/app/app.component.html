@@ -1,0 +1,24 @@
+<!-- 
+    TODO: 
+    1. Timeline
+    2. Search
+    3. Add new
+    4. Show map
+    5. Create modal
+    6. Add delete function
+ -->
+<ng-container *ngIf="(appState$ | async) as appState" [ngSwitch]="appState.dataState">
+    <ng-container *ngSwitchCase="DataState.LOADING_STATE">
+        <app-loader></app-loader>
+    </ng-container>
+    <ng-container *ngSwitchCase="DataState.LOADED_STATE">
+        <h1 class="text-center text-4xl mt-2">All trips</h1>
+        <div class="cards">
+            <app-travel-card [travel]="travel" class="w-9/10 sm:w-96" *ngFor="let travel of appState.appData!.data.travels;">
+            </app-travel-card>
+        </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="DataState.ERROR_STATE">
+        <p>Error</p>
+    </ng-container>
+</ng-container>
